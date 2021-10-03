@@ -22,11 +22,14 @@ public class Snake : MonoBehaviour
 
     private void Start()
     {
+        Cursor.visible = false;
         StartCoroutine(UpdateMovementRoutine());
     }
 
     private void Update()
     {
+        if(Input.GetKeyDown(KeyCode.Escape))Application.Quit();
+    
         if (Input.GetKeyDown(KeyCode.DownArrow) && _direction != Vector3.up)
             _direction = Vector3.down;
         if (Input.GetKeyDown(KeyCode.UpArrow) && _direction != Vector3.down)
